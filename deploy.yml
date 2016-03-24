@@ -1,0 +1,12 @@
+---
+- hosts: pi
+  remote_user: pi
+  vars_files:
+    - vars.yaml
+  tasks:
+  - name: Clone reporter project
+    git: repo={{ reporter_repo }} dest={{ project_root }}/bmvboatmonitor-reporter/ version={{ reporter_branch }}
+  - name: Install reporter project requirements
+    pip: requirements={{ project_root }}/bmvboatmonitor-reporter/requirements.txt
+  - name: Clone web project
+    git: repo={{ web_repo }} dest={{ project_root }}/bmvboatmonitor-web/ version={{ web_branch }}

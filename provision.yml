@@ -1,0 +1,13 @@
+---
+- hosts: pi
+  remote_user: pi
+  vars_files:
+    - vars.yaml
+  tasks:
+  - name: Create the project directory.
+    file: state=directory path={{ project_root }} owner=pi
+  - name: Install required system packages.
+    become: yes
+    become_user: root
+    apt: pkg={{ item }} state=installed update-cache=yes
+    with_items: "{{ system_packages }}"

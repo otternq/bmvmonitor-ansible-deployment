@@ -1,0 +1,13 @@
+---
+project_root: /home/pi/src
+reporter_repo: https://github.com/otternq/bmvboatmonitor-reporter.git
+reporter_branch: dev_file_store
+web_repo: https://github.com/otternq/bmvmonitor-web.git
+web_branch: master
+system_packages:
+  - build-essential
+  - git
+  - python-dev
+  - python-setuptools
+python_packages:
+  - pip
